@@ -41,11 +41,10 @@ class DroneTag:
         else: logo = Image.open(logo)
         logo_mod = drone_data.get("logo_size", 0.2)
         logo_border = drone_data.get("logo_border", 0.2)
+        border_radius = drone_data.get("border_radius", 0.125)
         front_color = drone_data.get("logo_color",
         tuple(int(drone_data.get("front_color", "#FFFFFF").lstrip('#')[i:i+2], 16) for i in (0, 2, 4)))
         back_color = tuple(int(drone_data.get("back_color", "#010101").lstrip('#')[i:i+2], 16) for i in (0, 2, 4))
-
-
 
         qr_img = qr_img.convert("RGBA")
         logo = logo.convert("RGBA")
@@ -59,7 +58,7 @@ class DroneTag:
         bg_size = logo_size + pad * 2
         bg = Image.new("RGBA", (bg_size, bg_size), (0, 0, 0, 0))
         draw = ImageDraw.Draw(bg)
-        radius = 0 #bg_size // 10   # <-- adjust roundness here
+        radius = int(bg_size*border_radius)
         draw.rounded_rectangle(
             (0, 0, bg_size, bg_size),
             radius=radius,
@@ -116,7 +115,6 @@ class DroneTag:
                 bbox = font.getbbox(text)
                 text_width = bbox[2] - bbox[0]
                 font_size += 1
-            print(font_size)
             text_height = bbox[3] - bbox[1]
             padding = text_height - (text_height//2//2) + (len(text)//2)
             if any(ord(c) > 127 for c in text): padding = padding//2
@@ -245,6 +243,6 @@ if __name__ == "__main__":
         #drone_ids = [] # Uncomment this out to disable collision detection
         drone_tag = DroneTag(drone, drone_ids)
         print(f"Droneified: {drone_tag.drone_id} {json.dumps(drone_tag.drone_data, indent=4)}\n")
-        drone_tag.save(f"./tests/{drone_tag.drone_id}")
+        if drone_tag.drone_id != None: drone_tag.save(f"./examples/{drone_tag.drone_id}.png")
 
 
