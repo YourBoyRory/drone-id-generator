@@ -51,9 +51,9 @@ drone_tag = DroneTag(drone_data, drone_ids)
 	Keys and vaues for options are below.
 
 - `drone_ids: ARRAY` [Optional]\
-	Optionally used to store a running list of generated IDs when using the `name` option.\
-	This array is not used unless `name` is set\
-	When ommited, hash colitions handling when using the `name` option will be disable.
+	Optionally used to store a running list of generated IDs when using the `name` option.
+	This array is not used unless `name` is set.\
+	When ommited, hash collisions handling when using the `name` option will be disable.
 
 ### General
 - `'front_color': HEX COLOR`\
