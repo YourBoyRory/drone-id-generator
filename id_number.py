@@ -201,24 +201,24 @@ if __name__ == "__main__":
             "front_color": "#FFA500",
         },
         {
-            "name": "Extra Long Text",
+            "name": "Long Text",
             "title": "Your Extra Long Text Here",
             "front_color": "#1E90FF",
         },
         {
-            "name": "Extra short Text",
+            "name": "Short Text",
             "title": "s",
             "title_size": 80, # <-- This is needed for small text
             "front_color": "#1E90FF",
         },
         {
-            "name": "Extra big Text",
-            "title": "Small",
+            "name": "Big Text",
+            "title": "BIG TEXT",
             "title_size": 400,
             "front_color": "#1E90FF",
         },
         {
-            "name": "Extra Small Text",
+            "name": "Small Text",
             "title": "Small",
             "title_size": 30,
             "front_color": "#1E90FF",
@@ -239,7 +239,7 @@ if __name__ == "__main__":
         }
     ]
 
-    for drone in drones:
+    for drone in drones[:]:
         #drone_ids = [] # Uncomment this out to disable collision detection
         drone_tag = DroneTag(drone, drone_ids)
         print(f"Droneified: {drone_tag.drone_id} {json.dumps(drone_tag.drone_data, indent=4)}\n")
