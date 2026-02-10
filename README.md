@@ -73,6 +73,9 @@ drone_tag = DroneTag(drone_data)
 	When ommited, the ID size is selected automatically.
 
 ### Logo
+- `'logo': STRING`\
+  	Path to the logo file. This is intended to be a solid color png.
+  	When ommited, The logo will not be rendered.
 - `'logo_color': HEX COLOR`\
   	Overrides the logo's color.\
   	When ommited, the default is white.
