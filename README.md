@@ -50,7 +50,7 @@ drone_tag = DroneTag(drone_data)
   	When ommited, the default is black.
 - `'qr_data': BYTES|STRING`\
   	Sets what data the QR code stores. 
-	This can be any 'bytes' object or string, and the QR code will change 'versions' to fit the data.\
+	This can be any "bytes" object or string, and the QR code will change "versions" to fit the data.\
 	When ommited, `drone_id` will be used as the QR code text.
 
 
