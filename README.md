@@ -17,6 +17,7 @@ pip install -r requirements.txt
 # import the class
 from DroneTools import DroneTag
 
+
 drone_ids = [] # This is optional. Used to track used IDs to handle hash collisions.
 
 # Make a drone
@@ -41,6 +42,9 @@ drone_tag = DroneTag(drone_data, drone_ids)
 # The only key needed is 'name' or 'drone_id',
 # name is used to generate a drone_id and the rest will use default values.
 # More Examples in DroneTools.py
+
+# Save your tag.
+drone_tag.save("/path/to/output")
 
 ```
 
