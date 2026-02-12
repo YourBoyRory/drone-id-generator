@@ -215,6 +215,7 @@ if __name__ == "__main__":
     drone_ids = [] # Comment this out to enable loading drone name
 
     drones = [
+        # Feat Test
         {
             "name": "Rory",
             "title": "Pup Drone",
@@ -228,6 +229,12 @@ if __name__ == "__main__":
             "front_color": "#FF8C00",
         },
         {
+            "name": "Some Pokemon",
+            "title": "Poké Drone",
+            "logo": "./assets/rocket.png",
+            "front_color": "#DC141E",
+        },
+        {
             "drone_id": "#0000",
             "title": "Hexcorp",
             "logo": "./assets/hex2.png",
@@ -235,12 +242,24 @@ if __name__ == "__main__":
             "logo_border": 0.133,
             "front_color": "#AB34C7",
         },
+        # QR Data
         {
             "name": "Website",
             "title": "Somename",
             "code_data": "https://www.example.com/make_this_qr_code_massive_please/make_this_qr_code_EVENMORE_massive_please",
             "front_color": "#FFFF00",
         },
+        # real world + hash colision
+        {
+            "name": "Rory",
+            "code_data": "https://www.example.com/",
+            "font_path": "./assets/font3.otf",
+            "qr_roundness": 0.3,
+            "id_padding": 30,
+            "back_color": "#b2aa83",
+            "front_color": "#4f603b",
+        },
+        # Bounds testing
         {
             "name": "Long Text",
             "title": "Your Extra Long Text Here",
@@ -274,24 +293,10 @@ if __name__ == "__main__":
             "title_margin": 200,
             "front_color": "#1E90FF",
         },
+        # Stability Test
         {
             "This will": "get skipped"
         },
-        {
-            "name": "Rory",
-            "code_data": "https://www.example.com/",
-            "font_path": "./assets/font3.otf",
-            "qr_roundness": 0.3,
-            "id_padding": 30,
-            "back_color": "#b2aa83",
-            "front_color": "#4f603b",
-        },
-        {
-            "name": "Some Pokemon",
-            "title": "Poké Drone",
-            "logo": "./assets/rocket.png",
-            "front_color": "#DC141E",
-        }
     ]
 
     for drone in drones[:]:
