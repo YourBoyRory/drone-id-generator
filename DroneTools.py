@@ -282,7 +282,7 @@ if __name__ == "__main__":
             "code_data": "https://www.example.com/",
             "font_path": "./assets/font3.otf",
             "qr_roundness": 0.3,
-            "id_padding": 40,
+            "id_padding": 30,
             "back_color": "#b2aa83",
             "front_color": "#4f603b",
         },
