@@ -267,7 +267,8 @@ if __name__ == "__main__":
         {
             "name": "Rory",
             "code_data": "https://www.example.com/",
-            "front_color": "#34B134",
+            "back_color": "#d8d8d8",
+            "front_color": "#268720",
         },
         {
             "name": "Some Pokemon",
