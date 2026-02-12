@@ -79,6 +79,7 @@ class DroneTag():
         id_margin = drone_data.get("id_margin", 75)
         title_size = drone_data.get("title_size", None)
         title_margin = drone_data.get("title_margin", 70)
+        square = drone_data.get("square", True)
         text = drone_data.get("drone_id", "")
         side_text = drone_data.get("title", "")
         barcode = self.drone_data.get("barcode", False)
@@ -129,6 +130,16 @@ class DroneTag():
             draw.text((text_x, 20), text, fill=front_color, font=font)
             new_img.paste(qr_img, (0, text_height + padding))
             new_img = new_img.rotate(90, expand=True)
+
+        if square:
+            long_size = max(new_img.width, new_img.height)
+            short_size =min(new_img.width, new_img.height)
+            squared_img = Image.new("RGB", (long_size, long_size), back_color)
+            if new_img.width > new_img.height:
+                squared_img.paste(new_img, (0,(long_size - short_size)//2))
+            else:
+                squared_img.paste(new_img, ((long_size - short_size)//2, 0))
+            new_img = squared_img
 
         self.drone_tag = new_img
         return new_img
@@ -227,6 +238,7 @@ if __name__ == "__main__":
             "drone_id": "U992",
             "barcode": True,
             "font_path": "./assets/font2.otf",
+            "square": True,
             "title": "Drone",
             "front_color": "#FF8C00",
         },
