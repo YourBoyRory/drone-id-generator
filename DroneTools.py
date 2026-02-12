@@ -269,7 +269,6 @@ if __name__ == "__main__":
             "font_path": "./assets/font3.otf",
             "qr_roundness": 0.3,
             "id_padding": 30,
-            "square": True,
             "back_color": "#b2aa83",
             "front_color": "#4f603b",
         },
@@ -289,6 +288,7 @@ if __name__ == "__main__":
             "name": "Big Text",
             "title": "BIG TEXT",
             "title_size": 400,
+            "square": True,
             "front_color": "#1E90FF",
         },
         {
