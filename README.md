@@ -77,6 +77,7 @@ drone_tag.save("/path/to/output")
 - `'barcode': BOOLEAN`\
   	When 'True' A barcode is generated instead of a QR Code. 
 	This should only be used with small sizes of data, such as the ID number. Links or messages should use a QR code.\
+	Logo options are ignored in this mode.\
 	When ommited, the default is 'False'.
 
 
