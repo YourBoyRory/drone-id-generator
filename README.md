@@ -42,23 +42,34 @@ from DroneTools import DroneTag
 
 drone_ids = []
 drone_data = {
-    "name": "Some Name", # Ignored in this example because 'drone_id' is present
+    "name": "Some Name",  # Ignored in this example because 'drone_id' is present below
     "drone_id": "03-1312",
     "code_data": "03-1312",
-	"qr_roundness": 1,
-	"barcode_height": 20, # Ignored in this example because 'barcode' is False
-    "barcode": False, 
     "title": "Poké Drone",
-	"square": False,
     "front_color": "#DC141E",
     "back_color": "#000000",
+    "square": True,
+    "barcode": False,
+    "barcode_height": 20, # Ignored in this example because 'barcode' is set to 'False' above
+    "qr_roundness": 1,
+
+    "top_padding": 20,
+    "bottom_padding": 0,
+    "left_padding": 20,
+    "right_padding": 0,
+    "font_path": "./assets/font.otf"
+    "text_margin": 75,    # 'text_margin' and 'text_padding' are ignored in this example because
+    "text_padding": 0,    # 'id_padding_override' + 'title_padding_override' and
+                          # 'id_margin_override' + 'title_margin_override' are set below
     "id_size": 83,
-	"id_margin": 75,
-	"id_padding": 41,
+    "id_shift": 0,
+    "id_margin_override": 75,
+    "id_padding_override": 0,
     "title_size": 69,
-	"title_margin": 70,
-	"title_padding": 53,
-	"font_path": "./assets/font.otf"
+    "title_shift": 0,
+    "title_margin_override": 75,
+    "title_padding_override": 0,
+
     "logo": "./assets/rocket.png",
     "logo_color": "#DC141E",
     "logo_size": 0.2,
@@ -76,119 +87,134 @@ More examples and tests in DroneTools.py
 `drone_tag = DroneTag(drone_data, drone_ids)`
 
 - `drone_data: DICT` [Required]\
-	Options used to create the drone tag.\
-	Keys and vaues for options are below.
+    Options used to create the drone tag.\
+    Keys and vaues for options are below.
 
 - `drone_ids: ARRAY` [Optional]\
-	Optionally used to store a running list of generated IDs when using the `name` option.
-	This array is not used unless `name` is set.\
-	When ommited, hash collisions handling when using the `name` option will be disable.
+    Optionally used to store a running list of generated IDs when using the `name` option.
+    This array is not used unless `name` is set.\
+    When ommited, hash collisions handling when using the `name` option will be disable.
 
 ##### Data Memebers
 - `drone_data DICT`
-	Stored options used to construct the drone tag.
+    Stored options used to construct the drone tag.
 - `drone_ids: ARRAY`
-	Stored a running list of generated IDs when using the `name` option.
+    Stored a running list of generated IDs when using the `name` option.
 - `drone_tag: PIL.Image.Image`
-	Stored drone tag image.
+    Stored drone tag image.
 
 ##### Methods
 - `save([PATH: STRING])`\
-	Saves the drone tag image to a specified path. 
-	If no path is provided the file is saved under the ID number in the current working directory.
+    Saves the drone tag image to a specified path.
+    If no path is provided the file is saved under the ID number in the current working directory.
 - `get_image()`\
-	Returns the drone tag image as a `PIL.Image.Image` object. 
+    Returns the drone tag image as a `PIL.Image.Image` object.
 
 ## General Options
 - `'front_color': HEX COLOR`\
-  	Sets the color of text and images.\
-  	When ommited, the default is white.
+    Sets the color of text and images.\
+    When ommited, the default is white.
 - `'back_color': HEX COLOR`\
-  	Sets the color of the backgroud.\
-  	When ommited, the default is black.
-- `'back_color': BOOLEAN`\
-  	When 'True' the generated image is a perfect square.\
-  	When ommited, the default is 'False'.
+    Sets the color of the backgroud.\
+    When ommited, the default is black.
+- `'square': BOOLEAN`\
+    When 'True' the generated image is padded out into a perfect square.\
+    When ommited, the default is 'False'.
+- `'top_padding': INT`\
+    TODO: Write Entry
+- `'bottom_padding': INT`\
+    TODO: Write Entry
+- `'left_padding': INT`\
+    TODO: Write Entry
+- `'right_padding': INT`\
+    TODO: Write Entry
 
 ## Text Options
 - `'front_path': STRING`\
-  	Sets path for the font file used for text to a custom one.\
-  	When ommited, the default font is used.
+    Sets path for the font file used for text to a custom one.\
+    When ommited, the default font is used.
+- `'text_margin': INT`\
+    TODO: Write Entry
+- `'text_padding': INT`\
+    TODO: Write Entry
 
 ##### ID Options (Top Text)
 
 - `'name': STRING`\
-	The name is hashed to create `drone_id` in the format of '00-0000'.
-	The first number is always 0 unless the id exists in `drone_ids`, in which case it will increment.
-	This option is ignore when `drone_id` is set.\
-	If ommited, `drone_id` must be set.
-- `'title_margin': STRING`\
-	Used to set the ID number and formatting. `name` is ignore when this option is set.\
-	If ommited, `name` must be set.
+    The name is hashed to create `drone_id` in the format of '00-0000'.
+    The first number is always 0 unless the id exists in `drone_ids`, in which case it will increment.
+    This option is ignore when `drone_id` is set.\
+    If ommited, `drone_id` must be set.
+- `'drone_id': STRING`\
+    Used to set the ID number and formatting. `name` is ignore when this option is set.\
+    If ommited, `name` must be set.
+- `'id_shift': INT`\
+    TODO: Write Entry
 - `'id_size': INT`\
-	Overrides the ID number's size.\
-	When ommited, the ID's size is selected automatically.
-- `'id_margin': INT`\
-	Overrides the margin on the left and right of the ID.\
-	Set this when using a custom font.\
-	When ommited, the ID's margin is selected automatically.
-- `'is_padding': INT`\
-	Overrides the padding seperating the ID from the code.\
-	Set this when using a custom font.\
-	When ommited, the ID's padding is selected automatically.
+    Overrides the ID number's size.\
+    When ommited, the ID's size is selected automatically.
+- `'id_margin_override': INT`\
+    Overrides the margin on the left and right of the ID.\
+    Set this when using a custom font.\
+    When ommited, the ID's margin is selected automatically.
+- `'id_padding_override': INT`\
+    Overrides the padding seperating the ID from the code.\
+    Set this when using a custom font.\
+    When ommited, the ID's padding is selected automatically.
 
 ##### Title Options (Side Text)
 
 - `'title': STRING`\
-	Sets the drone's title on the sidebar.\
-	When ommited, the sidebar will not be rendered.
+    Sets the drone's title on the sidebar.\
+    When ommited, the sidebar will not be rendered.
+- `'title_shift': INT`\
 - `'title_size': INT`\
-	Overrides the title's size.\
-	When ommited, the title's size is selected automatically.
-- `'title_margin': INT`\
-	Overrides the margin on the top and bottom of the title.\
-	Set this when using a custom font.\
-	When ommited, the title's margin is selected automatically.
-- `'title_padding': INT`\
-	Overrides the padding seperating the title from the code.\
-	Set this when using a custom font.\
-	When ommited, the title's padding is selected automatically.
+    Overrides the title's size.\
+    When ommited, the title's size is selected automatically.
+- `'title_margin_override': INT`\
+    Overrides the margin on the top and bottom of the title.\
+    Set this when using a custom font.\
+    When ommited, the title's margin is selected automatically.
+- `'title_padding_override': INT`\
+    Overrides the padding seperating the title from the code.\
+    Set this when using a custom font.\
+    When ommited, the title's padding is selected automatically.
 
 ## QR/Barcode Options
 
 - `'barcode': BOOLEAN`\
-  	When 'True' a barcode is generated instead of a QR Code. 
-	This should only be used with small sizes of data, such as the ID number. Links or messages should use a QR code.\
-	Logo options are ignored in this mode.\
-	When ommited, the default is 'False'.
+    When 'True' a barcode is generated instead of a QR Code.
+    This should only be used with small sizes of data, such as the ID number. Links or messages should use a QR code.\
+    Logo options are ignored in this mode.\
+    When ommited, the default is 'False'.
 - `'code_data': BYTES|STRING`\
-  	Sets what data the QR code stores. 
-	This can be any "bytes" object or string, and the QR code will change "versions" to fit the data.\
-	When ommited, `drone_id` will be used as the QR code text.
+    Sets what data the QR code stores.
+    This can be any "bytes" object or string, and the QR code will change "versions" to fit the data.\
+    When ommited, `drone_id` will be used as the QR code text.
 - `'qr_roundness': [ 1.0 - 0.0 ]`\
-  	Sets roundness of the lines on the QR code. 1 is fully round and 0 is fully square. 
-	This option is ignored when `barcode` is set to 'True'.\
-	When ommited, the QR code is rounded.
+    Sets roundness of the lines on the QR code. 1 is fully round and 0 is fully square.
+    This option is ignored when `barcode` is set to 'True'.\
+    When ommited, the QR code is rounded.
 - `'barcode_height': [ 1.0 - 0.0 ]`\
-  	Sets height of the lines on the Barcode.
-	This option is ignored when `barcode` is set to 'False' or ommited.\
-	When ommited, the Barcode height is selected automatically.
+    Sets height of the lines on the Barcode.
+    This option is ignored when `barcode` is set to 'False' or ommited.\
+    When ommited, the Barcode height is selected automatically.
 
 ##### Logo Options (Not compatible with barcodes)
 
 - `'logo': STRING`\
-  	Path to the logo file. This is intended to be a solid color png.\
-	This option is ignored when `barcode` is set to 'True'.\
-  	When ommited, the logo will not be rendered.
+    Path to the logo file. This is intended to be a solid color png.\
+    This option is ignored when `barcode` is set to 'True'.\
+    When ommited, the logo will not be rendered.
 - `'logo_color': HEX COLOR`\
-  	Overrides the logo's color.\
-  	When ommited, `front_color` will be used.
+    Overrides the logo's color.\
+    When ommited, `front_color` will be used.
 - `'logo_size': [ 1.0 - 0.0 ]`\
-  	Sets the logo's size.\
-  	When ommited, the default is `0.2`.
+    Sets the logo's size.\
+    When ommited, the default is `0.2`.
 - `'logo_border': [ 1.0 - 0.0 ]`\
-  	Sets the logo's border thickness.\
-  	When ommited, the default is `0.2`.
+    Sets the logo's border thickness.\
+    When ommited, the default is `0.2`.
 - `'border_radius': [ 1.0 - 0.0 ]`\
-  	Sets the logo's border corner roundness.\
-  	When ommited, the default is `0.125`.
+    Sets the logo's border corner roundness.\
+    When ommited, the default is `0.125`.

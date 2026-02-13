@@ -63,9 +63,15 @@ class DroneTag():
         # ID
         text = drone_data.get("drone_id", "")
         id_size = drone_data.get("id_size", None)
+        id_shift = drone_data.get("id_shift", 0)
+        id_margin = drone_data.get("id_margin_override", text_margin)
+        id_spacing = drone_data.get("id_padding_override", text_spacing)
         # Title
         side_text = drone_data.get("title", "")
         title_size = drone_data.get("title_size", None)
+        title_shift = drone_data.get("title_shift", 0)
+        title_margin = drone_data.get("title_margin_override", text_margin)
+        title_spacing = drone_data.get("title_padding_override", text_spacing)
 
         def __generate_text(text, text_margin, modifier, text_spacing, reqested_size=None):
             # Set Font size
@@ -86,13 +92,13 @@ class DroneTag():
                 bbox = font.getbbox(text)
                 text_width = bbox[2] - bbox[0]
             text_height = int((bbox[3] - bbox[1])*modifier) + text_spacing
-            if any(ord(c) > 127 for c in side_text): text_height = int(text_height*.75)
+            if any(ord(c) > 127 for c in text): text_height = int(text_height*.75)
             return font, text_height, text_width
 
         # Render Top Text
         if text != "":
             # Set Font size
-            font, id_text_height, id_text_width = __generate_text(text, text_margin, 1.4, text_spacing, id_size)
+            font, id_text_height, id_text_width = __generate_text(text, id_margin, 1.4, id_spacing, id_size)
 
             # Draw new canvase
             new_img = Image.new("RGB", (code_img.width, code_img.height + id_text_height + bottom_padding + top_padding), back_color)
@@ -100,7 +106,7 @@ class DroneTag():
 
             # Center Text
             text_x = (new_img.width - id_text_width) // 2
-            draw.text((text_x, top_padding), text, fill=front_color, font=font)
+            draw.text((text_x+id_shift, top_padding), text, fill=front_color, font=font)
 
             # Set Image
             new_img.paste(code_img, (0, id_text_height+top_padding))
@@ -111,8 +117,8 @@ class DroneTag():
             code_img = new_img.rotate(-90, expand=True)
 
             # Set Font size
-            if is_barcode: text_margin += 20
-            font, title_text_height, title_text_width = __generate_text(side_text, text_margin, 1.35, text_spacing, title_size)
+            if is_barcode: title_margin += 20
+            font, title_text_height, title_text_width = __generate_text(side_text, title_margin, 1.35, title_spacing, title_size)
 
             # Draw new canvase
             new_img = Image.new("RGB", (code_img.width, code_img.height + title_text_height + right_padding + left_padding), back_color)
@@ -120,7 +126,7 @@ class DroneTag():
 
             # Center Text
             text_x = ((new_img.width) - title_text_width) // 2
-            draw.text((text_x, left_padding), side_text, fill=front_color, font=font)
+            draw.text((text_x+title_shift, left_padding), side_text, fill=front_color, font=font)
 
             # Set image and rotate image back to normal
             new_img.paste(code_img, (0, title_text_height+left_padding))
