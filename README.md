@@ -167,11 +167,11 @@ More examples and tests in DroneTools.py
 - `'title': STRING`\
     Sets the drone's title on the sidebar.\
     When ommited, the sidebar will not be rendered.
-- `'title_shift': INT`\
-    TODO: Write Entry
 - `'title_size': INT`\
     Overrides the title's size.\
     When ommited, the title's size is selected automatically.
+- `'title_shift': INT`\
+    TODO: Write Entry
 - `'title_margin_override': INT`\
     Overrides the margin on the top and bottom of the title.\
     Set this when using a custom font.\
