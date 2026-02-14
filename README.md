@@ -138,11 +138,13 @@ More examples and tests in DroneTools.py
     Sets path for the font file used for text to a custom one.\
     When ommited, the default font is used.
 - `'text_margin': INT`\
-    Sets the margin on the left and right of all text.\
+    Sets the margin on the left and right of all text.
+	This option will be ignored by text using the 'margin_override' option\
     Set this when using a custom font.\
     When ommited, text margins are selected automatically.
 - `'text_padding': INT`\
-    Sets the padding seperating all text from the code.\
+    Sets the padding seperating all text from the code.
+	This option will be ignored by text using the 'padding_override' option\
     Set this when using a custom font.\
     When ommited, text padding is selected automatically.
 
