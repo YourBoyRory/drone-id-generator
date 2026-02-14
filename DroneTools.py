@@ -69,7 +69,7 @@ class DroneTag():
         # Title
         side_text = drone_data.get("title", "")
         title_size = drone_data.get("title_size", None)
-        title_shift = drone_data.get("title_shift", 50)
+        title_shift = drone_data.get("title_shift", 0)
         title_margin = drone_data.get("title_margin_override", text_margin)
         title_spacing = drone_data.get("title_padding_override", text_spacing)
 
