@@ -98,7 +98,7 @@ More examples and tests in DroneTools.py
 ##### Data Memebers
 - `drone_data DICT`
     Stored options used to construct the drone tag.
-- `drone_id STRING`
+- `drone_id: STRING`
     Stores options the drone id in String format.
 - `drone_ids: ARRAY`
     Stored a running list of generated IDs when using the `name` option.
