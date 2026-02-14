@@ -1,6 +1,6 @@
 from PIL import Image, ImageDraw, ImageFont
 
-class HanderBadge():
+class HandlerBadge():
     pass
 
 class DroneTag():
@@ -276,13 +276,7 @@ class DroneTag():
         while id_number in ids: id_number = str(int(id_number[0])+1) + id_number[1:]
         return id_number
 
-
-
-#=======================================#
-###    EXAMPLE USAGE AND UNIT TEST    ###
-#=======================================#
+# Call Unit tests
 if __name__ == "__main__":
     import Sample as sample
     sample.main()
-
-
