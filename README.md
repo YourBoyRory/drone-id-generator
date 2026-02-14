@@ -80,7 +80,7 @@ drone_tag = DroneTag(drone_data, drone_ids)
 drone_tag.save("/path/to/output.png")
 
 ```
-More examples and tests in DroneTools.py
+More examples and tests in `Sample.py`
 
 # Docs
 
