@@ -35,7 +35,7 @@ def main():
             "logo": "./assets/rocket.png",
             "front_color": "#DC141E",
             "output_path": "./samples/" # <-- You can add arbitry values to the dict for use in your own code.
-        },                              #     These will be ignored and untouched.
+        },                              #     These will be stored by the class but ignored and untouched.
         {
             "drone_id": "#0000",
             "title": "Hexcorp",
