@@ -121,22 +121,30 @@ More examples and tests in DroneTools.py
     When 'True' the generated image is padded out into a perfect square.\
     When ommited, the default is 'False'.
 - `'top_padding': INT`\
-    TODO: Write Entry
+    Adds padding to the top of the tag.\
+	When omitted, the padding is selected automatically.
 - `'bottom_padding': INT`\
-    TODO: Write Entry
+    Adds padding to the bottom of the tag.\
+	When omitted, the padding is selected automatically.
 - `'left_padding': INT`\
-    TODO: Write Entry
+    Adds padding to the left of the tag.\
+	When omitted, the padding is selected automatically.
 - `'right_padding': INT`\
-    TODO: Write Entry
+    Adds padding to the right of the tag.\
+	When omitted, the padding is selected automatically.
 
 ## Text Options
 - `'front_path': STRING`\
     Sets path for the font file used for text to a custom one.\
     When ommited, the default font is used.
 - `'text_margin': INT`\
-    TODO: Write Entry
+    Sets the margin on the left and right of all text.\
+    Set this when using a custom font.\
+    When ommited, text margins are selected automatically.
 - `'text_padding': INT`\
-    TODO: Write Entry
+    Sets the padding seperating all text from the code.\
+    Set this when using a custom font.\
+    When ommited, text padding is selected automatically.
 
 ##### ID Options (Top Text)
 
@@ -152,7 +160,9 @@ More examples and tests in DroneTools.py
     Overrides the ID number's size.\
     When ommited, the ID's size is selected automatically.
 - `'id_shift': INT`\
-    TODO: Write Entry
+    Shifts the ID text left or right of center. Postitive numbers will shift right
+	while negative number will shift left.\
+	When ommited, the ID will be centered.
 - `'id_margin_override': INT`\
     Overrides the margin on the left and right of the ID.\
     Set this when using a custom font.\
@@ -171,7 +181,9 @@ More examples and tests in DroneTools.py
     Overrides the title's size.\
     When ommited, the title's size is selected automatically.
 - `'title_shift': INT`\
-    TODO: Write Entry
+    Shifts the Title text up or down of center. Postitive numbers will shift up
+	while negative number will shift down.\
+	When ommited, the title will be centered.
 - `'title_margin_override': INT`\
     Overrides the margin on the top and bottom of the title.\
     Set this when using a custom font.\
@@ -185,7 +197,8 @@ More examples and tests in DroneTools.py
 
 - `'barcode': BOOLEAN`\
     When 'True' a barcode is generated instead of a QR Code.
-    This should only be used with small sizes of data, such as the ID number. Links or messages should use a QR code.\
+    This should only be used with small sizes of data, such as the ID number. 
+	Links or messages should use a QR code.\
     Logo options are ignored in this mode.\
     When ommited, the default is 'False'.
 - `'code_data': BYTES|STRING`\
