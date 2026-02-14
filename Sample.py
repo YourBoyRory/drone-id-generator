@@ -9,7 +9,7 @@ import os, json
 def main():
     drone_ids = [
         os.path.splitext(f)[0]
-        for f in os.listdir(".")
+        for f in os.listdir("./samples")
         if f.lower().endswith(".png")
     ]
     drone_ids = [] # Comment this out to enable loading existing drone name
@@ -34,7 +34,8 @@ def main():
             "title": "Poké Drone",
             "logo": "./assets/rocket.png",
             "front_color": "#DC141E",
-        },
+            "output_path": "./samples/" # <-- You can add arbitry values to the dict for use in your own code.
+        },                              #     These will be ignored and untouched.
         {
             "drone_id": "#0000",
             "title": "Hexcorp",
@@ -109,7 +110,7 @@ def main():
         test_name = drone.get("name", drone.get("title", drone.get("drone_id", list(drone.values())[0])))
         drone_tag = DroneTag(drone, drone_ids)
         print(f"Test: {test_name} {json.dumps(drone_tag.drone_data, indent=4)}\n")
-        if drone_tag.drone_id != None: drone_tag.save(f"./examples/{drone_tag.drone_id}.png")
+        if drone_tag.drone_id != None: drone_tag.save(drone.get("output_path", "./samples")+f"/{drone_tag.drone_id}.png")
         else: skips.append(test_name)
 
     if skips != []:

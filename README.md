@@ -2,8 +2,8 @@
 
 ## Python Library for creating drone IDs
 
-<img src="https://raw.githubusercontent.com/YourBoyRory/DroneTools/refs/heads/main/examples/03-1312.png" width="300" /> <img src="https://raw.githubusercontent.com/YourBoyRory/DroneTools/refs/heads/main/examples/%230000.png" width="300" />\
-<img src="https://raw.githubusercontent.com/YourBoyRory/DroneTools/refs/heads/main/examples/U992.png" width="364" /> <img src="https://raw.githubusercontent.com/YourBoyRory/DroneTools/refs/heads/main/examples/12-1290.png" width="234" />
+<img src="https://raw.githubusercontent.com/YourBoyRory/DroneTools/refs/heads/main/samples/static/03-1312.png" width="300" /> <img src="https://raw.githubusercontent.com/YourBoyRory/DroneTools/refs/heads/main/samples/static/%230000.png" width="300" />\
+<img src="https://raw.githubusercontent.com/YourBoyRory/DroneTools/refs/heads/main/samples/static/U992.png" width="364" /> <img src="https://raw.githubusercontent.com/YourBoyRory/DroneTools/refs/heads/main/samples/static/12-1290.png" width="234" />
 
 ----
 
